@@ -1,7 +1,7 @@
 # build the image and tag it appropriately
 
-DOCKER_BUILDKIT=1 docker build -f Dockerfile -t ghcr.io/wormholelabs-xyz/solana-test-validator-m1:1.17.29 .
+docker buildx build --platform linux/amd64,linux/arm64 --build-arg SOLANA_CLI=1.17.29 -f Dockerfile -t ghcr.io/wormholelabs-xyz/solana-test-validator:1.17.29 .
 
 # push to ghcr
 
-docker push ghcr.io/wormholelabs-xyz/solana-test-validator-m1:1.17.29
+docker push ghcr.io/wormholelabs-xyz/solana-test-validator:1.17.29
